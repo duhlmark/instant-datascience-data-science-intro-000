@@ -1,0 +1,35 @@
+lyrics = "Ah, Ba Ba Ba Ba Barbara Ann Ba Ba Ba Ba Barbara Ann Oh Barbara Ann Take My Hand Barbara Ann You Got Me Rockin' And A-Rollin' Rockin' And A-Reelin' Barbara Ann Ba Ba Ba Barbara Ann ...More Lyrics... Ba Ba Ba Ba Barbara Ann Ba Ba Ba Ba Barbara Ann"
+list_of_lyrics = lyrics.split(' ')
+len(list_of_lyrics)
+unique_words = set (list_of_lyrics)
+{'...More', "A-Reelin'", "A-Rollin'", 'Ah,', 'And', 'Ann', 'Ba', 'Barbara', 'Got', 'Hand',
+ 'Lyrics...', 'Me', 'My', 'Oh', "Rockin'", 'Take', 'You'}
+len(unique_words)
+word_counts = {'Ann' : 2, 'Barbara' : 3, 'Ba' : 8}
+word_counts['Ann']
+2
+word_counts['Ann'] = 33
+word_counts
+{'Ann': 33, 'Ba': 8, 'Barbara': 3}
+word_histogram = dict.fromkeys(unique_words, 0)
+for number in [1, 2, 3, 4]:
+    print(number+10)
+11
+12
+13
+14
+word_histogram = dict.fromkeys(unique_words, 0)
+for word in list_of_lyrics:
+    word_histogram[word] = word_histogram[word]+ 1
+print(word_histogram)
+word_histogram["Rockin'"]
+2
+import plotly
+from plotly.offline import iplot, init_notebook_mode
+from plotly import tools
+import plotly.graph_objs as go
+init_notebook_mode(connected=True)
+trace = {'type': 'bar', 'x': list(unique_words), 'y':
+list(word_histogram.values())}
+
+plotly.offline.iplot({'data': [trace]})
